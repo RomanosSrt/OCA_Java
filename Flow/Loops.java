@@ -13,5 +13,6 @@ public class Loops {
         else
             result = "C";
         System.out.println(result + ":" + score);
+        System.out.println(cond);
     }
 }
