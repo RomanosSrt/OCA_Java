@@ -15,13 +15,10 @@ class Programmer extends Employee {
         System.out.print(super.address);
     }
 
-    Programmer() {
-        printValues();
-    }
 }
 
 public class TwistInTale3 {
     public static void main(String args[]) {
-        new Programmer();
+        new Programmer().printValues();
     }
 }

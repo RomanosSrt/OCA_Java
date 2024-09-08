@@ -2,11 +2,11 @@ package Inheritance;
 
 public class TwistInTale1 {
     public static void main(String[] args) {
-        System.out.println(new Programmer("Harry").getName());
+        System.out.println(new Programmer1("Harry").getName());
     }
 }
 
-class Employee {
+class Employee1 {
     private String name;
     String address;
     protected String phoneNumber;
@@ -21,8 +21,8 @@ class Employee {
     }
 }
 
-class Programmer extends Employee {
-    Programmer(String val) {
+class Programmer1 extends Employee1 {
+    Programmer1(String val) {
         setName(val);
     }
 
