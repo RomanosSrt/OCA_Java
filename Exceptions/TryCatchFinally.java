@@ -4,25 +4,38 @@ import java.io.*;
 
 public class TryCatchFinally {
     public static void main(String args[]) {
-        FileInputStream fis = null;
+        TestException testing = new TestException();
+        System.out.println("Final message: " + testing.inform());
+    }
+}
+
+class TestException {
+    FileInputStream fis = null;
+    StringBuffer message = new StringBuffer("Ooops!..");
+
+    StringBuffer inform() {
+
         try {
             fis = new FileInputStream("file.txt");
             System.out.println("File Opened");
             fis.read();
             System.out.println("File read");
         } catch (FileNotFoundException fnfe) {
-            System.out.println("Error 404: File not found");
+            System.out.println(message + " Error 404: File not found");
+            return message;
         } catch (IOException ioe) {
             System.out.println("I/O Exception");
         } finally {
-            System.out.println("Finally");
             try {
                 fis.close();
-            } catch (NullPointerException ioe) {
-                System.out.println("Nothing to close");
+            } catch (IOException ioe) {
+                System.out.println("No need to close file that doesn't exists");
+            } catch (NullPointerException empty) {
+                System.out.println("No file");
             }
-
+            System.out.println("Finally");
+            message.append(" That was unfortunate.");
         }
-        System.out.println("Next Task ...");
+        return message;
     }
 }
